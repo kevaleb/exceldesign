@@ -1,0 +1,6 @@
+---
+name:
+position:
+company:
+photo:
+---

@@ -19,11 +19,23 @@
 		
 	</head>
 	<body>
-		{% include nav.html %}
+		{% include header.html %}
 		<div class="content">
 			<div>
 				{{ content }}
 			</div>
-		</div>		
+			{% include footer.html %}
+		</div>
+		<script src="https://cdn.jsdelivr.net/scrollreveal.js/3.3.1/scrollreveal.min.js"></script>
+		<script type="text/javascript">
+		    (function ($) {
+		        window.sr = ScrollReveal();
+		        sr.reveal('.animate');
+		        sr.reveal('.animate-up', { duration: 1000, origin: 'bottom', delay: 500, });
+		        sr.reveal('.animate-down', { duration: 1000, origin: 'top', delay: 500, });
+		        sr.reveal('.animate-left', { duration: 1000, origin: 'right', distance: '200px'  });
+		        sr.reveal('.animate-right', { duration: 1000, origin: 'left', distance: '200px' });
+		    })();
+		</script>	
 	</body>
 </html>

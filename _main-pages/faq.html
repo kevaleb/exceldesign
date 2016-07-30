@@ -1,0 +1,28 @@
+---
+layout: default
+title: Frequently Asked Questions
+navclass: faq
+navtitle: FAQ
+---
+<div class="banner" style="background-image: url();">
+	<hgroup class="center full">
+		<h1 class="animate-right">{{ page.title }}</h1>
+	</hgroup>
+	<div class="scroll-cta">
+		<img src="/images/icons/mouse.png" alt="" class="animate-down"/>
+		<span class="animate-up">Scroll to see more</span>
+	</div>
+</div>
+
+<div>
+	<section class="faq">
+		<ul>
+			{% for faq in site.faqs %}
+				<li>
+					<h3> {{ faq.question }}</h3>
+					<p>{{ faq.content }}</p>
+				</li>
+			{% endfor %}
+		</ul>
+	</section>
+</div>

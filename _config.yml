@@ -1,13 +1,18 @@
-name: Your Website Name
+name: Excel Design
+address1: 473 South River Road
+address2: St. George, UT 84790
+phone: (435) 414-1442
+email: charles@exceldesign.us
+fax: 435.608.4586
+lat: '37.1003124'
+lng: '-113.5552788'
+mapzoom: 13
 version: 3.0.3
 permalink: pretty
 excerpt_separator: ///
 collections:
   main-pages:
     output: true
-  makes:
-    output: true
-  models:
-    output: true
-  trucks:
-    output: true
+  testimonials:
+    hide_content: true
+  faqs:
