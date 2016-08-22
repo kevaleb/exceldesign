@@ -156,6 +156,7 @@ header > .menu-button > span {
 	border-radius: 3px;
 	-webkit-transition: all 1s ease-in-out 0s;
 	        transition: all 1s ease-in-out 0s;
+	box-shadow: 0px 1px 3px rgba(0,0,0,.5);
 }
 header > .logo {
 	margin: 0;
@@ -205,12 +206,12 @@ header > nav> a {
 	letter-spacing: 1px;
 }
 header > nav> a:hover {
-	color: #00e697;;
+	color: #e71d25;
 }
 header > nav> li.selected > a {
 	border: 1px solid #00e697;
 	border-radius: 36px;
-	color: #00e697;
+	color: #e71d25;
 }
 
 
@@ -893,9 +894,11 @@ header.open > .menu-button > span.three {
 }
 .alternating > div {
 	position: relative;
+	max-width: 960px;
+	margin: 0 auto;
 	/*overflow: hidden;*/
 	/*margin: 96px 0;*/
-	padding: 96px 0;
+	padding: 150px 0;
 	/*border-bottom: 1px solid #ccc;*/
 }
 .alternating > div:first-of-type {
@@ -940,6 +943,24 @@ header.open > .menu-button > span.three {
 .alternating > div:nth-of-type(even) > p {
 	float: right;
 	clear: right;
+}
+
+
+
+
+.alternating > section {
+	max-width: none;
+	text-align: center;
+	padding: 200px 96px;
+	background-attachment: fixed!important;
+	background-size: cover!important;
+}
+.alternating > section > h4 {
+	max-width: 720px;
+	margin: 0 auto;
+	font: 100 36px/48px "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+	color: #fff;
+	letter-spacing: 2px;
 }
 
 /* @end */
