@@ -1288,11 +1288,12 @@ article > ul > li{
 
 
 
-/* @group Winery Map */
-#winery-map {
+/* @group Map */
+#map {
 	position: relative;
     height:72%;
     width: 100%;
+    background: #f16;
 }
 .gm-style-iw * {
     display: block;

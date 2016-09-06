@@ -32,7 +32,7 @@ navtitle: Contact Us
 	</section>
 </div>
 
-<div id='winery-map'></div>
+<div id='map'></div>
 
 <div style="background: #f2f2f2;">
 	<section class="contact-form">
@@ -60,57 +60,41 @@ navtitle: Contact Us
 	</section>
 </div>
 
-<script src='https://maps.googleapis.com/maps/api/js?key=&sensor=false&extension=.js'></script> 
- 
-<script> 
-    google.maps.event.addDomListener(window, 'load', init);
-    var map;
-    function init() {
-        var mapOptions = {
-            center: new google.maps.LatLng({{ site.lat }}, {{ site.lng }}),
-            zoom: {{ site.mapzoom }},
-            zoomControl: true,
-            zoomControlOptions: {
-                style: google.maps.ZoomControlStyle.DEFAULT,
-            },
-            disableDoubleClickZoom: true,
-            mapTypeControl: true,
-            mapTypeControlOptions: {
-                style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR,
-            },
-            scaleControl: true,
-            scrollwheel: false,
-            panControl: true,
-            streetViewControl: true,
-            draggable : true,
-            overviewMapControl: true,
-            overviewMapControlOptions: {
-                opened: false,
-            },
-            mapTypeId: google.maps.MapTypeId.ROADMAP,
-        }
-        var mapElement = document.getElementById('winery-map');
-        var map = new google.maps.Map(mapElement, mapOptions);
-        var locations = [
-			['{{ site.name }}', '{{ page.address }}','undefined', 'undefined', 'undefined', {{ site.lat }}, {{ site.lng }}, '/images/icons/gps.png']
-        ];
-        for (i = 0; i < locations.length; i++) {
-			if (locations[i][1] =='undefined'){ description ='';} else { description = locations[i][1];}
-			if (locations[i][2] =='undefined'){ telephone ='';} else { telephone = locations[i][2];}
-			if (locations[i][3] =='undefined'){ email ='';} else { email = locations[i][3];}
-           if (locations[i][4] =='undefined'){ web ='';} else { web = locations[i][4];}
-           if (locations[i][7] =='undefined'){ markericon ='';} else { markericon = locations[i][7];}
-            marker = new google.maps.Marker({
-                icon: markericon,
-                position: new google.maps.LatLng(locations[i][5], locations[i][6]),
-                map: map,
-                title: locations[i][0],
-                desc: description,
-                tel: telephone,
-                email: email,
-                web: web
-            });
-link = '';     }
-
-}
+<script src='https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyCcJFPhkoOBXSK_JPqpIyHXfQlPIQGI5ag'></script>
+<script type='text/javascript' src='https://embedmaps.com/google-maps-authorization/script.js?id=4524315f9130bf5da27eb009d53f4dbcd7d6ef3f'></script>
+<script type='text/javascript'>
+	function init_map(){
+		var myOptions = {
+			zoom: {{ site.mapzoom }},
+			zoomControl: true,
+			disableDoubleClickZoom: true,
+			scaleControl: false,
+			scrollwheel: false,
+			center:new google.maps.LatLng({{ site.lat }},{{ site.lng }}),
+			mapTypeControl: true,
+			mapTypeControlOptions: {
+			    style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR,
+			},
+			panControl: true,
+			streetViewControl: true,
+			draggable : true,
+			overviewMapControl: false,
+			mapTypeId: google.maps.MapTypeId.ROADMAP
+		};
+		
+		map = new google.maps.Map(document.getElementById('map'), myOptions);
+		
+		marker = new google.maps.Marker({
+			map: map,
+			position: new google.maps.LatLng({{ site.lat }},{{ site.lng }})
+		});
+		
+		infowindow = new google.maps.InfoWindow({content:'<h3>{{ site.name }}</h3><h4>{{ site.address1 }}{{ site.address2 }}</h4>'});
+		
+		google.maps.event.addListener(marker, 'click', function(){infowindow.open(map,marker);});
+		
+		infowindow.open(map,marker);
+	}
+	
+	google.maps.event.addDomListener(window, 'load', init_map);
 </script>
