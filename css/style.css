@@ -1178,20 +1178,17 @@ article > ul > li{
 /* @group Contact */
 
 .contact {
-	max-width: 320px!important;
+	max-width: 360px!important;
 	padding: 48px 0!important;
 	overflow: hidden;
 }
 .contact > p {
-	/*float: left;
-	width: 50%;
-	border: 1px solid #ccc;
-	padding: 12px;*/
 	margin: 0 0 30px 0;
 	font: 400 18px/24px "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
-	/*white-space: nowrap;*/
+	white-space: nowrap;
 	text-align: left;
 	letter-spacing: 1px;
+	overflow: visible;
 }
 .contact > p:last-of-type {
 	margin: 0;
