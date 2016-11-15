@@ -355,21 +355,13 @@ header.open > .menu-button > span.three {
 }
 .content .banner.half > hgroup > h1 {
 	background: #000;
-	float: left;
+	/*float: left;*/
 	padding: 12px 24px;
 }
 
 .banner > img {
 	position: absolute;
 	height: 100%;
-}
-.banner > img.left {
-	left: 0;
-	top: 0;
-}
-.banner > img.right {
-	top: 0;
-	right: 0;
 }
 /*.banner:before {
 	display: none;
@@ -410,6 +402,7 @@ header.open > .menu-button > span.three {
 	margin: 0 auto 0 auto;
 }
 .banner > hgroup > h1 {
+	display: inline-block;
 	margin: 0px 0 0 0;
 	font:400 36px/48px Georgia, "Times New Roman", Times, serif;
 	letter-spacing: 1px;
