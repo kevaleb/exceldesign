@@ -7,6 +7,11 @@ banner_path: /images/backgrounds/scroll.jpg
 	<hgroup>
 		<img src="/images/logos/logo-icon.png" alt="" class="animate-right" />
 		<img src="/images/logos/logo-name.png" alt="" class="animate-left" />
+		<br /><br />
+		<a id="open-overlay" class="button">Play Video
+			<!-- Play icon by Icons8 -->
+			<img class="icon icons8-Play" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADQAAAA0CAYAAADFeBvrAAABOklEQVRoQ+3Z2w3CMAwF0OvJYAUmYYWyASOUDRiBbsImRpGaH4SquI0fLc5PfwLpsdOrPggHG3QwDxIUvaPZoeyQcQVyyxkXXLzcf3eImQcAJwBvADciKsdQo7lDzHwHcP06+zEaTALihVaEgfUCVas7rDfIHaYFcoNpg8xhVqAKe82pWI4qwxqkDvMCqcG8Qd1hUUDdYNFAm2FRQath0UEVdiGiZ0vO7wU0EdE5QUsVYOalx4eW4m2Zc5gtNwEYiKj5VinqNSSG1PZHA62GRANthkQBdYN4g7pDvEAPAKMktaRZbxUKBVLiV/3FpDbIDKK95cwhWiA3SG+QO2QN6NfL+jAQMaj8YP6cUp5LSlqZpJZabEv/2Gt+c2x7naB03QRJK2Y9PztkXXHpetkhacWs52eHrCsuXe8DCyq8NUdt2z8AAAAASUVORK5CYII=" width="52" height="52">
+		</a>
 		<!--<h1>Land Development Consultants</h1>-->
 	</hgroup>
 	<div class="scroll-cta">
@@ -14,6 +19,52 @@ banner_path: /images/backgrounds/scroll.jpg
 		<span class="animate-up">Scroll to see more</span>
 	</div>
 </div>
+
+<div class="overlay">
+	<span class="close-overlay" id="close-overlay">X</span>
+	<div class="video-wrapper">
+		<iframe id="video" width="560" height="315" src="http://www.youtube.com/embed/sRKHKkJt3hU?rel=0&enablejsapi=1" frameborder="0" allowfullscreen></iframe>
+	</div>	
+</div>
+
+<script type="text/javascript">
+	// https://developers.google.com/youtube/iframe_api_reference
+	
+	// global variable for the player
+	var player;
+	
+	// this function gets called when API is ready to use
+	function onYouTubePlayerAPIReady() {
+	  // create the global player from the specific iframe (#video)
+	  player = new YT.Player('video', {
+	    events: {
+	      // call this function when player is ready to use
+	      'onReady': onPlayerReady
+	    }
+	  });
+	}
+	
+	function onPlayerReady(event) {
+	  
+	  // bind events
+	  var playButton = document.getElementById("open-overlay");
+	  playButton.addEventListener("click", function() {
+	    player.playVideo();
+	  });
+	  
+	  var pauseButton = document.getElementById("close-overlay");
+	  pauseButton.addEventListener("click", function() {
+	    player.pauseVideo();
+	  });
+	  
+	}
+	
+	// Inject YouTube API script
+	var tag = document.createElement('script');
+	tag.src = "//www.youtube.com/player_api";
+	var firstScriptTag = document.getElementsByTagName('script')[0];
+	firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+</script>
 
 <!--<div>
 	<section class="testimonials">
